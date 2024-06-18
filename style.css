@@ -228,6 +228,8 @@ transition: all 0.8s;
     text-transform: capitalize;
 }
 .contact{
+    display: flex;
+    justify-content: center;
     background-color: rgb(220, 153, 60) ;
     margin-left: 15%;
     margin-right: 15%;
