@@ -4,6 +4,12 @@
     box-sizing: border-box;
     color: rgb(48, 31, 19);
 }
+p:hover{
+    text-shadow:-5px 5px 5px rgb(88, 64, 46) ;
+}
+li:hover{
+    text-shadow:-5px 5px 5px rgb(88, 64, 46) ;
+}
 .nav img{
     width: 8rem;
     height: 8rem;
@@ -69,29 +75,35 @@ background: linear-gradient(90deg, rgba(8,66,25,1) 0%, rgba(72,154,77,1) 55%, rg
     color: rgb(48, 31, 19);
     
 }
-.typeheading {
+.typeheading{ 
+    margin-left: 38rem;
+    width: 20rem;
     
+        --b: 0.15em;   /* the thickness of the line */
+        --c:  rgb(8,66,25); /* the color */
+        
+        color: #0000;
+        padding-block: var(--b);
+        background: 
+          linear-gradient(var(--c) 50%,#000 0) 0% calc(100% - var(--_p,0%))/100% 200%,
+          linear-gradient(var(--c) 0 0) 0% var(--_p,0%)/var(--_p,0%) var(--b) no-repeat;
+        -webkit-background-clip: text,padding-box ;
+                background-clip: text,padding-box;
+        transition: .3s var(--_s,0s) linear,background-size .3s calc(.3s - var(--_s,0s));
+       
     font-family:  'Shadows Into Light', cursive;
     font-size: 60px;
     text-transform: uppercase;
-    color:rgb(48, 31, 19) ;
-    position: relative;
+    color:rgb(79, 4, 4) ;
+   
     font-weight: bolder;
     text-shadow: 2px 3px 4px black;
 }
-.typeheading::before{
-    background: hsl(45 100% 70%);
-    content: "";
-    inset: 0;
-    position: absolute;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.5s ease-in-out;
-    z-index: -1;
-}
-.typeheading:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
+
+.typeheading:hover {
+    --_p: 80%;
+    --_s: .3s;
+    color: rgb(8,66,25);
   }
 .type p{
     font-family:  Georgia, 'Times New Roman', Times, serif;
@@ -115,14 +127,52 @@ background: linear-gradient(90deg, rgba(8,66,25,1) 0%, rgba(72,154,77,1) 55%, rg
     font-weight: 100px;
 }
 
-.brand h1{
-    text-align: center;
-    margin: 20px;
+.brandheading {
     font-family:'Shadows Into Light', cursive ;
     font-size: 50px;
     text-shadow: 2px 3px 4px black;
     color:rgb(48, 31, 19) ;
+    width: 20rem;
+    margin-left: 38rem;
+    
+    --c: rgb(8,66,25); /* the color */
+    --s: .15em;
+    
+    line-height:1.1em;
+    padding-bottom: calc(2.1*var(--s));
+    background: 
+      conic-gradient(from 135deg at top,var(--c) 90deg,#0000 0) 
+        left 0 bottom var(--s)/calc(2*var(--s)) var(--s) repeat-x,
+      conic-gradient(from -45deg at bottom,var(--c) 90deg,#0000 0) 
+        left var(--s) bottom 0/calc(2*var(--s)) var(--s) repeat-x;
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0) 0/var(--_p,0%) padding-box no-repeat;
+    transition: .5s;
+  }
+  .brandheading:hover {
+    --_p: 100%;
+    color: var(--c);
+  }
+  #contact .brandheading{
+    width: 23rem;
+    text-transform: capitalize;
 }
+  
+#brands img {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+#brands img:hover img {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+  }
 .starbuck{
     display: flex;
     
@@ -219,9 +269,6 @@ background: linear-gradient(90deg, rgba(8,66,25,1) 0%, rgba(72,154,77,1) 55%, rg
     width: 250px;
     height: 250px;
     border-radius: 50px;
-    
-   
-
 }
 .image{
     display: grid;
@@ -262,9 +309,6 @@ h1{
     outline: var(--b) solid var(--c);
     outline-offset: var(--g);
 }
-#contact h1{
-    text-transform: capitalize;
-}
 .contact{
     display: flex;
     justify-content: center;
@@ -274,28 +318,7 @@ h1{
     border: 3px solid rgb(48, 31, 19) ;
     border-radius: 20px;
 }
-input{
-    width: 300px;
-    height: 30px;
-    margin: 10px;
-    border: 2px inset grey;
-    border-radius: 5px;
-}
-textarea{
-    margin: 10px;
-    border: 2px inset grey;
-    border-radius: 5px;
-}
-button{
-    margin-left: 10px;
-    
-    background-color:rgb(92, 53, 26) ;
-    color: white;
-    font-family:'Shadows Into Light', cursive  ;
-    width: 80px;
-    border-radius: 5px;
-    font-size: 20px;
-}
+
 
 
 #footer{
@@ -325,10 +348,7 @@ button{
     font-weight: 500px;
     font-size: 40px;
 }
-pre{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 500px;
-}
+
 .adress a{
     font-family: 'Josefin Sans', sans-serif;
     text-decoration: none;
